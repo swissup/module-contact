@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="swissup_contact" type="text" sortOrder="" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Contact</label>
+            <tab>swissup</tab>
+            <resource>Swissup_Contact::config_contact</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="purpose" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Purpose of contact</label>
+                    <frontend_model>Swissup\Contact\Block\Adminhtml\Form\Field\Purpose</frontend_model>
+                    <backend_model>Swissup\Contact\Model\Config\Backend\Purpose</backend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
