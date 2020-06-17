@@ -2,7 +2,7 @@
 
 namespace Swissup\Contact\Model\Config\Backend;
 
-class Purpose extends \Magento\Framework\App\Config\Value
+class Recipient extends \Magento\Framework\App\Config\Value
 {
     /**
      * @param \Magento\Framework\Math\Random                               $mathRandom
@@ -66,7 +66,7 @@ class Purpose extends \Magento\Framework\App\Config\Value
         unset($value['__empty']);
         foreach ($value as $row) {
             if (!is_array($row)
-                || !array_key_exists('purpose', $row)
+                || !array_key_exists('recipientName', $row)
                 || !array_key_exists('recipient', $row)
             ) {
                 return false;
@@ -87,15 +87,15 @@ class Purpose extends \Magento\Framework\App\Config\Value
         unset($value['__empty']);
         foreach ($value as $row) {
             if (!is_array($row)
-                || !array_key_exists('purpose', $row)
+                || !array_key_exists('recipientName', $row)
                 || !array_key_exists('recipient', $row)
             ) {
                 continue;
             }
 
-            $purpose = $row['purpose'];
-            unset($row['purpose']);
-            $result[$purpose] = $row;
+            $recipientName = $row['recipientName'];
+            unset($row['recipientName']);
+            $result[$recipientName] = $row;
         }
 
         return $result;
@@ -114,8 +114,8 @@ class Purpose extends \Magento\Framework\App\Config\Value
             return (string) $data;
         } elseif (is_array($value)) {
             $data = [];
-            foreach ($value as $purpose => $settings) {
-                $data[$purpose] = $settings;
+            foreach ($value as $recipientName => $settings) {
+                $data[$recipientName] = $settings;
             }
 
             return json_encode($data);
@@ -179,9 +179,9 @@ class Purpose extends \Magento\Framework\App\Config\Value
     protected function encodeArrayFieldValue(array $value)
     {
         $result = [];
-        foreach ($value as $purpose => $settings) {
+        foreach ($value as $recipientName => $settings) {
             $resultId = $this->mathRandom->getUniqueHash('_');
-            $result[$resultId] = ['purpose' => $purpose] + $settings;
+            $result[$resultId] = ['recipientName' => $recipientName] + $settings;
         }
 
         return $result;

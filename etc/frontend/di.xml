@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Swissup\Contact\Model\Mail\GeneralForm" type="Magento\Contact\Model\Mail">
+        <arguments>
+            <argument name="contactsConfig" xsi:type="object">Swissup\Contact\Model\Config\GeneralForm</argument>
+        </arguments>
+    </virtualType>
+    <type name="Swissup\Contact\Controller\Index\Post">
+        <arguments>
+            <argument name="mail" xsi:type="object">Swissup\Contact\Model\Mail\GeneralForm</argument>
+        </arguments>
+    </type>
+</config>

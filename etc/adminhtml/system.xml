@@ -8,11 +8,11 @@
             <tab>swissup</tab>
             <resource>Swissup_Contact::config_contact</resource>
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>General</label>
+                <label>General Contact Form</label>
                 <field id="purpose" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Purpose of contact</label>
-                    <frontend_model>Swissup\Contact\Block\Adminhtml\Form\Field\Purpose</frontend_model>
-                    <backend_model>Swissup\Contact\Model\Config\Backend\Purpose</backend_model>
+                    <label>Contact message recipient</label>
+                    <frontend_model>Swissup\Contact\Block\Adminhtml\Form\Field\Recipient</frontend_model>
+                    <backend_model>Swissup\Contact\Model\Config\Backend\Recipient</backend_model>
                 </field>
             </group>
         </section>
