@@ -6,9 +6,19 @@
             <argument name="contactsConfig" xsi:type="object">Swissup\Contact\Model\Config\GeneralForm</argument>
         </arguments>
     </virtualType>
+    <virtualType name="Swissup\Contact\Model\Mail\CallbackForm" type="Magento\Contact\Model\Mail">
+        <arguments>
+            <argument name="contactsConfig" xsi:type="object">Swissup\Contact\Model\Config\CallbackForm</argument>
+        </arguments>
+    </virtualType>
     <type name="Swissup\Contact\Controller\Index\Post">
         <arguments>
             <argument name="mail" xsi:type="object">Swissup\Contact\Model\Mail\GeneralForm</argument>
+        </arguments>
+    </type>
+    <type name="Swissup\Contact\Controller\Callback\Post">
+        <arguments>
+            <argument name="mail" xsi:type="object">Swissup\Contact\Model\Mail\CallbackForm</argument>
         </arguments>
     </type>
 </config>

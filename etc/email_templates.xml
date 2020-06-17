@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="swissup_contact_callback_email_template" label="Callback Form" file="swissup_callback_form.html" type="html" module="Swissup_Contact" area="frontend"/>
+</config>

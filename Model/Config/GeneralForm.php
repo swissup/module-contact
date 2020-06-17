@@ -13,6 +13,11 @@ class GeneralForm extends \Magento\Contact\Model\Config
     protected $form;
 
     /**
+     * @var ScopeConfigInterface
+     */
+    protected $config;
+
+    /**
      * @param ContactForm          $form
      * @param ScopeConfigInterface $scopeConfig
      */
@@ -21,6 +26,7 @@ class GeneralForm extends \Magento\Contact\Model\Config
         ScopeConfigInterface $scopeConfig
     ) {
         $this->form = $form;
+        $this->config = $scopeConfig;
         parent::__construct($scopeConfig);
     }
 

@@ -31,7 +31,17 @@ class ContactForm extends \Magento\Contact\Block\ContactForm
      */
     public function getGeneralFormOptions()
     {
-        $value = $this->_scopeConfig->getValue('swissup_contact/general/purpose');
+        $value = $this->_scopeConfig->getValue('swissup_contact/general/recipient');
+
+        return $this->configValueProcessor->makeArrayFieldValue($value);
+    }
+
+    /**
+     * @return array
+     */
+    public function getCallbackFormOptions()
+    {
+        $value = $this->_scopeConfig->getValue('swissup_contact/callback/recipient');
 
         return $this->configValueProcessor->makeArrayFieldValue($value);
     }
@@ -44,5 +54,15 @@ class ContactForm extends \Magento\Contact\Block\ContactForm
     public function getGeneralFormAction()
     {
         return $this->getUrl('contact-us/index/post', ['_secure' => true]);
+    }
+
+    /**
+     * Returns action url for callback form
+     *
+     * @return string
+     */
+    public function getCallbackFormAction()
+    {
+        return $this->getUrl('contact-us/callback/post', ['_secure' => true]);
     }
 }
