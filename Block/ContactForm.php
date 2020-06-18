@@ -65,4 +65,25 @@ class ContactForm extends \Magento\Contact\Block\ContactForm
     {
         return $this->getUrl('contact-us/callback/post', ['_secure' => true]);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function _prepareLayout()
+    {
+        $children = $this->getChildNames();
+        if (!in_array('form.additional.info', $children)) {
+            $this->addChild(
+                'form.additional.info',
+                \Magento\Captcha\Block\Captcha::class,
+                [
+                    'form_id' => 'contact_us',
+                    'img_width' => '230',
+                    'img_height' => '50'
+                ]
+            );
+        }
+
+        return parent::_prepareLayout();
+    }
 }

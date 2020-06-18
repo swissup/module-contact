@@ -39,6 +39,8 @@ class GeneralForm extends \Magento\Contact\Model\Config
         $options = $this->getRecipients() ?: [];
         $recipient = '';
 
+        // convert strin to same encoding
+        $recipientName = $this->form->escapeHtmlAttr($recipientName);
         foreach ($options as $item) {
             if ($this->form->escapeHtmlAttr($item['recipientName']) === $recipientName) {
                 $recipient = $item['recipient'];
